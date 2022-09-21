@@ -56,7 +56,6 @@ const createGameMatrix = matrix => {
         }
         console.log(matrix[i])
     }
-    console.log(JSON.stringify(matrix, 2));
     return matrix;
 }
 
