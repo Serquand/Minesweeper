@@ -1,0 +1,65 @@
+@import url('https://unpkg.com/reset-css@5.0.1/reset.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.minesweeper-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template: repeat(19, 25px) / repeat(19, 25px);
+}
+
+.minesweeper-container div {
+    height: 100%;
+    cursor: pointer;
+}
+
+.minesweeper-container div:nth-child(odd) {
+    background-color: rgb(3, 151, 3);
+}
+
+.minesweeper-container div:nth-child(even) {
+    background-color: green;
+}
+
+.minesweeper-container div:hover {
+    background-color: lightgreen;
+}
+
+.near-1 {
+    color: blue;
+}
+
+.near-2 {
+    color: green;
+}
+
+.near-3 {
+    color: red;
+}
+
+.near-4 {
+    color: brown;
+}
+
+.near-5 {
+    color: black;
+}
+
+.near-6 {
+    color: grey;   
+}
+
+.near-7 {
+    color: purple;
+}
+
+.near-8 {
+    color: darkblue;
+}
