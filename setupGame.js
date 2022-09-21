@@ -16,10 +16,3 @@ const initializeMineArray = () => {
     }
     return arrayMine
 }
-
-const setupMatrix = () => {
-    const arrayMine = initializeMineArray()
-    console.log(arrayMine);
-}
-
-setupMatrix()
