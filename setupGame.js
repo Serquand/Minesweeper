@@ -36,7 +36,13 @@ const initializeMineArray = () => {
 }
 
 const createGameMatrix = matrix => {
-    
+    console.log(matrix);
+    for(let i = 0; i < 19; i++) {
+        for(let j = 0; j < 19; j++) {
+            console.log(matrix[i][j])
+        }
+    }
+    return matrix;
 }
 
 const setupMatrix = () => createGameMatrix(convertMineArrayToMineMatrix(convertRdmArrayToMineArray(initializeMineArray())))
