@@ -36,12 +36,27 @@ const initializeMineArray = () => {
 }
 
 const createGameMatrix = matrix => {
-    console.log(matrix);
     for(let i = 0; i < 19; i++) {
         for(let j = 0; j < 19; j++) {
-            console.log(matrix[i][j])
+            let numberMine = 0;
+            if(matrix[i][j] == 'M') continue;
+            if(matrix[i - 1] != undefined) {
+                if(matrix[i - 1][j - 1] == 'M') numberMine++
+                if(matrix[i - 1][j] == 'M') numberMine++
+                if(matrix[i - 1][j + 1] == 'M') numberMine++
+            }
+            if(matrix[i][j - 1] == 'M') numberMine++
+            if(matrix[i][j + 1] == 'M') numberMine++
+            if(matrix[i + 1] != undefined) {
+                if(matrix[i + 1][j - 1] == 'M') numberMine++
+                if(matrix[i + 1][j] == 'M') numberMine++
+                if(matrix[i + 1][j + 1] == 'M') numberMine++
+            }
+            matrix[i][j] = numberMine
         }
+        console.log(matrix[i])
     }
+    console.log(JSON.stringify(matrix, 2));
     return matrix;
 }
 
