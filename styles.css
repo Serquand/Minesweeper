@@ -24,7 +24,7 @@
     font-size: 20px;
 }
 
-.minesweeper-container > div:not(.checked)  > div {
+.minesweeper-container > div:not(.checked) > div, .minesweeper-container > div:not(.checked) {
     width: 100%;
     height: 100%;
     background-size: contain;

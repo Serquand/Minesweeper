@@ -12,12 +12,6 @@ const displayLose = compteur => {
     document.querySelector(".modal-layout p").innerText = 'Vous avez perdu !'
 }
 
-const displayFlag = compteur => {
-    const theDiv = document.createElement("div")
-    theDiv.classList.add("flaged")
-    test[compteur].appendChild(theDiv) 
-}
-
 const displayVictory = () => {
     gameRunning = false;
     document.querySelector(".modal-layout").style.display = "flex";
@@ -71,7 +65,7 @@ const checkCase = caseIndex => {
 const putAFlag = (event, index) => {
     event.preventDefault();
     if(test[index].classList.contains("revealed")) return
-    displayFlag(index);
+    test[index].classList.toggle("flaged")
 } 
 
 const replay = () => window.location.reload()
