@@ -2,8 +2,16 @@ const gameMatrix = setupMatrix();
 
 const test = document.querySelectorAll(".minesweeper-container > div") 
 
-const displayLose = () => {
+const displayLose = compteur => {
+    const theDiv = document.createElement("div")
+    theDiv.classList.add("mine")
+    test[compteur].appendChild(theDiv)
+}
 
+const displayFlag = compteur => {
+    const theDiv = document.createElement("div")
+    theDiv.classList.add("flaged")
+    test[compteur].appendChild(theDiv) 
 }
 
 const revealCase = (caseIndexY, caseIndexX, index) => {
@@ -16,14 +24,14 @@ const revealCase = (caseIndexY, caseIndexX, index) => {
 
 const checkCase = caseIndex => {
     const caseValue = gameMatrix[parseInt(caseIndex / 19)][caseIndex % 19]
-    if(caseValue == 'M') displayLose(); 
+    if(caseValue == 'M') displayLose(caseIndex); 
     else revealCase(parseInt(caseIndex / 19), caseIndex % 19, caseIndex)
 }
 
 const putAFlag = (event, index) => {
     event.preventDefault();
     if(test[index].classList.contains("revealed")) return
-    test[index].classList.toggle("flaged");
+    displayFlag(index);
 } 
 
 for(let i = 0; i < 361; i++) {
