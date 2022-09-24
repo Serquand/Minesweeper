@@ -14,11 +14,28 @@ const displayFlag = compteur => {
     test[compteur].appendChild(theDiv) 
 }
 
-const revealCase = (caseIndexY, caseIndexX, index) => {
+const getIndexFromPos = (caseIndexX, caseIndexY) => caseIndexX * 19 + caseIndexY
+
+const revealCase = (caseIndexY, caseIndexX) => {
+    const index = getIndexFromPos(caseIndexY, caseIndexX)
+    console.log(index)
+
     if(test[index].classList.contains("revealed") || test[index].classList.contains("flaged")) return
-    test[index].innerHTML = gameMatrix[caseIndexY][caseIndexX]
-    test[index].classList.add("near-" + gameMatrix[caseIndexY][caseIndexX])   
+    const numberMineNear = gameMatrix[caseIndexY][caseIndexX]
+    test[index].innerHTML = numberMineNear
+    test[index].classList.add("near-" + numberMineNear)   
     test[index].classList.add("revealed");   
+    
+    if(numberMineNear !== 0) return
+    
+    if(gameMatrix[caseIndexY + 1] != undefined && gameMatrix[caseIndexY + 1][caseIndexX + 1] != 'M') revealCase(caseIndexY + 1, caseIndexX + 1)
+    if(gameMatrix[caseIndexY + 1] != undefined && gameMatrix[caseIndexY + 1][caseIndexX] != 'M') revealCase(caseIndexY + 1, caseIndexX)
+    if(gameMatrix[caseIndexY + 1] != undefined && gameMatrix[caseIndexY + 1][caseIndexX - 1] != 'M') revealCase(caseIndexY + 1, caseIndexX - 1)
+    if(gameMatrix[caseIndexY] != undefined && gameMatrix[caseIndexY][caseIndexX + 1] != 'M') revealCase(caseIndexY, caseIndexX + 1)
+    if(gameMatrix[caseIndexY] != undefined && gameMatrix[caseIndexY][caseIndexX - 1] != 'M') revealCase(caseIndexY, caseIndexX - 1)
+    if(gameMatrix[caseIndexY - 1] != undefined && gameMatrix[caseIndexY - 1][caseIndexX + 1] != 'M') revealCase(caseIndexY - 1, caseIndexX + 1)
+    if(gameMatrix[caseIndexY - 1] != undefined && gameMatrix[caseIndexY - 1][caseIndexX] != 'M') revealCase(caseIndexY - 1, caseIndexX)
+    if(gameMatrix[caseIndexY - 1] != undefined && gameMatrix[caseIndexY - 1][caseIndexX - 1] != 'M') revealCase(caseIndexY - 1, caseIndexX - 1)
 }
 
 const checkCase = caseIndex => {
