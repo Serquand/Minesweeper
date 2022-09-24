@@ -1,4 +1,5 @@
 const gameMatrix = setupMatrix();
+let gameRunning = true;
 
 const test = document.querySelectorAll(".minesweeper-container > div") 
 
@@ -7,6 +8,7 @@ const displayLose = compteur => {
     theDiv.classList.add("mine")
     test[compteur].appendChild(theDiv)
     document.querySelector(".modal-layout").style.display = "flex";   
+    gameRunning = false;
 }
 
 const displayFlag = compteur => {
@@ -40,6 +42,7 @@ const revealCase = (caseIndexY, caseIndexX) => {
 }
 
 const checkCase = caseIndex => {
+    if(!gameRunning) return
     const caseValue = gameMatrix[parseInt(caseIndex / 19)][caseIndex % 19]
     if(caseValue == 'M') displayLose(caseIndex); 
     else revealCase(parseInt(caseIndex / 19), caseIndex % 19, caseIndex)
