@@ -59,5 +59,3 @@ const createGameMatrix = matrix => {
 }
 
 const setupMatrix = () => createGameMatrix(convertMineArrayToMineMatrix(convertRdmArrayToMineArray(initializeMineArray())))
-
-console.log(setupMatrix())
