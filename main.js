@@ -9,6 +9,7 @@ const displayLose = compteur => {
     test[compteur].appendChild(theDiv)
     document.querySelector(".modal-layout").style.display = "flex";   
     gameRunning = false;
+    document.querySelector(".modal-layout p").innerText = 'Vous avez perdu !'
 }
 
 const displayFlag = compteur => {
@@ -20,10 +21,18 @@ const displayFlag = compteur => {
 const displayVictory = () => {
     gameRunning = false;
     document.querySelector(".modal-layout").style.display = "flex";
+    document.querySelector(".modal-layout p").innerText = 'Vous avez gagné !'
 }
 
 const isWinning = () => {
-
+    let count = 0;
+    for(let i = 0; i < 19; i++) {
+        for(let j = 0; j < 19; j++) {
+            if(gameMatrix[i][j] != 'M' && !test[count].classList.contains("revealed")) return false
+            count++;
+        }
+    }
+    return true
 }
 
 const getIndexFromPos = (caseIndexX, caseIndexY) => caseIndexX * 19 + caseIndexY
@@ -38,7 +47,7 @@ const revealCase = (caseIndexY, caseIndexX) => {
     test[index].classList.add("near-" + numberMineNear)   
     test[index].classList.add("revealed");   
     
-    if(isWinning) return displayVictory()
+    if(isWinning()) return displayVictory()
 
     if(numberMineNear !== 0) return
     
