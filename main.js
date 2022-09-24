@@ -74,6 +74,8 @@ const putAFlag = (event, index) => {
     displayFlag(index);
 } 
 
+const replay = () => window.location.reload()
+
 for(let i = 0; i < 361; i++) {
     test[i].addEventListener("click", event => checkCase(i))   
     test[i].addEventListener("contextmenu", event => putAFlag(event, i));
