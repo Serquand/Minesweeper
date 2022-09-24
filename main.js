@@ -6,7 +6,7 @@ const displayLose = compteur => {
     const theDiv = document.createElement("div")
     theDiv.classList.add("mine")
     test[compteur].appendChild(theDiv)
-    
+    document.querySelector(".modal-layout").style.display = "flex";   
 }
 
 const displayFlag = compteur => {
