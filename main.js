@@ -80,16 +80,3 @@ for(let i = 0; i < 361; i++) {
     test[i].addEventListener("click", event => checkCase(i))   
     test[i].addEventListener("contextmenu", event => putAFlag(event, i));
 }
-
-// let compteur = 0;
-
-// for(let i = 0; i < 19; i++) {
-//     for(let j = 0; j < 19; j++) {
-//         if(gameMatrix[i][j] == 'M') test[compteur].appendChild(document.createElement("div"))    
-//         else {
-//             test[compteur].innerHTML = gameMatrix[i][j]
-//             test[compteur].classList.add("near-" + gameMatrix[i][j])
-//         }
-//         compteur++
-//     }    
-// }
