@@ -16,7 +16,6 @@ const displayFlag = compteur => {
 
 const revealCase = (caseIndexY, caseIndexX, index) => {
     if(test[index].classList.contains("revealed") || test[index].classList.contains("flaged")) return
-    console.log(caseIndexY, caseIndexX)
     test[index].innerHTML = gameMatrix[caseIndexY][caseIndexX]
     test[index].classList.add("near-" + gameMatrix[caseIndexY][caseIndexX])   
     test[index].classList.add("revealed");   
