@@ -54,7 +54,6 @@ const createGameMatrix = matrix => {
             }
             matrix[i][j] = numberMine
         }
-        console.log(matrix[i])
     }
     return matrix;
 }
