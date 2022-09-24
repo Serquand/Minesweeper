@@ -17,6 +17,15 @@ const displayFlag = compteur => {
     test[compteur].appendChild(theDiv) 
 }
 
+const displayVictory = () => {
+    gameRunning = false;
+    document.querySelector(".modal-layout").style.display = "flex";
+}
+
+const isWinning = () => {
+
+}
+
 const getIndexFromPos = (caseIndexX, caseIndexY) => caseIndexX * 19 + caseIndexY
 
 const revealCase = (caseIndexY, caseIndexX) => {
@@ -29,6 +38,8 @@ const revealCase = (caseIndexY, caseIndexX) => {
     test[index].classList.add("near-" + numberMineNear)   
     test[index].classList.add("revealed");   
     
+    if(isWinning) return displayVictory()
+
     if(numberMineNear !== 0) return
     
     if(gameMatrix[caseIndexY + 1] != undefined && gameMatrix[caseIndexY + 1][caseIndexX + 1] != 'M' && gameMatrix[caseIndexY + 1][caseIndexX + 1] != undefined) revealCase(caseIndexY + 1, caseIndexX + 1)
